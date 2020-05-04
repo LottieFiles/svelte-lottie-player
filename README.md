@@ -26,6 +26,7 @@ configs for viewing Lottie animations.
 
 ## Demos
 
+- [Component Storybook](https://lottiefiles.github.io/svelte-lottie-player/)
 - [Basic usage on Svelte REPL](https://svelte.dev/repl/c7c774dba1464389af5d738a9e486658)
 
 ## Installation
