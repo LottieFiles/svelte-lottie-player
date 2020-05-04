@@ -10,7 +10,7 @@
   }
 
   .control + .control {
-    margin-left: 3px;
+    margin-left: 4px;
   }
 
   .btn {
