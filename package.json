@@ -1,6 +1,6 @@
 {
   "name": "@lottiefiles/svelte-lottie-player",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "svelte": "src/components/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
