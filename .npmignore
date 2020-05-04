@@ -1,0 +1,25 @@
+# Ignore examples
+examples
+
+# Editor config
+.editorconfig
+
+# Eslint configs
+.eslintignore
+.eslintrc.js
+
+# Prettier configs
+.prettierignore
+.prettierrc.js
+
+# Babel configs
+babel.config.js
+
+# Testing configs
+jest.config.js
+
+# Rollup configs
+rollup.config.js
+
+# NPM
+yarn.lock

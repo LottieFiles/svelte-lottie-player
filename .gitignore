@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package management
+node_modules
+package-lock.json
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn stuff
+.pnp.*
+.yarn-integrity
+
+# Storybook
+storybook-static
+
+# Build and dev artifacts
+dist/
+public/bundle.*
+
+# IDE related
+**/.idea
+**/.vscode
+**/.history
+
+# Operating system
+.DS_Store
+.tmp
+*.bak
+*.swp
