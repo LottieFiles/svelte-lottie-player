@@ -33,13 +33,13 @@ configs for viewing Lottie animations.
 With `yarn`:
 
 ```bash
-yarn add svelte-lottie-player
+yarn add @lottiefiles/svelte-lottie-player
 ```
 
 With `npm`:
 
 ```bash
-npm install --save svelte-lottie-player
+npm install --save @lottiefiles/svelte-lottie-player
 ```
 
 ## Usage
