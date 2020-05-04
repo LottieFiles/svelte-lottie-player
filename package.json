@@ -1,5 +1,5 @@
 {
-  "name": "svelte-lottie-player",
+  "name": "@lottiefiles/svelte-lottie-player",
   "version": "0.1.0",
   "svelte": "src/components/index.js",
   "module": "dist/index.mjs",
@@ -9,7 +9,9 @@
     "lottie",
     "lottiefiles",
     "dotlottie",
-    "svelte"
+    "svelte",
+    "component",
+    "svelte-component"
   ],
   "author": "Jawish Hameed <jawish@lottiefiles.com>",
   "license": "MIT",
@@ -45,6 +47,8 @@
     "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "prettier-plugin-svelte": "^0.7.0",
@@ -52,9 +56,7 @@
     "rollup-plugin-svelte": "^5.2.1",
     "rollup-plugin-terser": "^5.3.0",
     "svelte": "^3.21.0",
-    "svelte-color-picker": "^1.0.7",
-    "svelte-loader": "^2.13.6",
-    "svelte-popover": "^2.0.8"
+    "svelte-loader": "^2.13.6"
   },
   "dependencies": {
     "lottie-web": "^5.6.8"
