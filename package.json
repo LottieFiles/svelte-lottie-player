@@ -4,7 +4,7 @@
   "svelte": "src/components/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "description": "Lottie Player component for Svelte",
+  "description": "Lottie animation player component for Svelte",
   "keywords": [
     "lottie",
     "lottiefiles",
@@ -20,6 +20,9 @@
     "url": "git+https://github.com/LottieFiles/svelte-lottie-player.git"
   },
   "homepage": "https://github.com/LottieFiles/svelte-lottie-player",
+  "bugs": {
+    "url": "https://github.com/LottieFiles/svelte-lottie-player/issues"
+  },
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
@@ -77,5 +80,8 @@
     "*.{js, svelte}": [
       "eslint . --fix"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
