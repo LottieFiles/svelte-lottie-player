@@ -49,15 +49,34 @@ Basic steps for use in a Svelte project:
 ```html
 <!-- App.svelte -->
 <script>
-  import { LottiePlayer } from 'svelte-lottie-player';
+  import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
+
+  let controlsLayout = [
+    'previousFrame',
+    'playpause',
+    'stop',
+    'nextFrame',
+    'progress',
+    'frame',
+    'loop',
+    'spacer',
+    'background',
+    'snapshot',
+    'zoom',
+    'info',
+  ];
 </script>
 
 <LottiePlayer
-  src="https://assets2.lottiefiles.com/private_files/lf30_5P4pCA.json"
+  src="https://assets2.lottiefiles.com/packages/lf20_wxUJzo.json"
   autoplay="{true}"
   loop="{true}"
-  bind:this="{lottie}"
   controls="{true}"
+  renderer="svg"
+  background="transparent"
+  height="{600}"
+  width="{600}"
+  controlsLayout="{controlsLayout}"
 />
 ```
 
