@@ -45,8 +45,8 @@ export const ControlsLayoutOptions = [
   "spacer",
   "background",
   "snapshot",
-  "zoom",
-  "info"
+  "info",
+  "zoom"
 ];
 
 /**
