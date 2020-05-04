@@ -19,10 +19,10 @@
     cursor: pointer;
     display: flex;
     fill: #999;
-    height: 24px;
+    height: 14px;
     outline: none;
     padding: 0;
-    width: 24px;
+    width: 14px;
   }
 
   .spacer {
@@ -156,8 +156,8 @@
     color: #999;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
       sans-serif;
-    font-size: 0.75rem;
-    height: 22px;
+    font-size: 0.7rem;
+    height: 14px;
     padding: 0px;
   }
 
@@ -175,7 +175,7 @@
   import { ControlsLayoutOptions, PlayerState } from './utils';
 
   // Define icon size
-  const ICON_SIZE = { width: 24, height: 24 };
+  const ICON_SIZE = { width: 14, height: 14, viewBox: '0 0 24 24' };
 
   // Create event dispatcher
   const dispatch = createEventDispatcher();
@@ -247,18 +247,22 @@
       <button class="control btn" on:click="{togglePlay}" class:active="{isPlaying || isPaused}">
         {#if isPlaying}
           <svg {...ICON_SIZE}>
-            <path d="M14.016 5.016H18v13.969h-3.984V5.016zM6 18.984V5.015h3.984v13.969H6z"></path>
+            <rect height="22.9" rx="1.9" width="7.6" x="14" y=".5"></rect>
+            <rect height="22.9" rx="1.9" width="7.6" x="2" y=".5"></rect>
           </svg>
         {:else}
           <svg {...ICON_SIZE}>
-            <path d="M8.016 5.016L18.985 12 8.016 18.984V5.015z"></path>
+            <path d="M2 3.4C2 1.9 3.5 1 4.8 1.8l16.5 9.6c1.2.7 1.2 2.5 0 3.2L4.8 24.2C3.5 25 2 24.1 2 22.6V3.4z"></path>
           </svg>
         {/if}
       </button>
     {:else if item === 'stop'}
       <button class="control btn" on:click="{stop}" class:active="{isStopped}">
         <svg {...ICON_SIZE}>
-          <path d="M6 6h12v12H6V6z"></path>
+          <path
+            d="M2 3.667A1.67 1.67 0 0 1 3.667 2h16.666A1.67 1.67 0 0 1 22 3.667v16.666A1.67 1.67 0 0 1 20.333
+            22H3.667A1.67 1.67 0 0 1 2 20.333z"
+          ></path>
         </svg>
       </button>
     {:else if item === 'progress'}
@@ -277,9 +281,14 @@
       <button class="control btn" on:click="{toggleLooping}" class:active="{loop}">
         <svg {...ICON_SIZE}>
           <path
-            d="M17.016 17.016v-4.031h1.969v6h-12v3l-3.984-3.984 3.984-3.984v3h10.031zM6.984
-            6.984v4.031H5.015v-6h12v-3l3.984 3.984-3.984 3.984v-3H6.984z"
+            d="M22 4.8L17.6.3a1 1 0 00-1.5 0c-.4.4-.5 1.2-.1 1.6l3.3 3.6-3.2 3.4c-.4.4-.4 1.4 0 1.8a1 1 0 001.5 0L22
+            6.2a1 1 0 000-1.4z"
           ></path>
+          <path
+            d="M3.8 4.5h17.5v2.2H5v6.9c0 .6-.6 1-1.1 1-.6 0-1.2-.4-1.2-1V5.5c0-.6.6-1 1.2-1zm-.9 15l4.5 4.4c.4.4 1 .4
+            1.4 0 .4-.4.6-1.3.2-1.7l-3.4-3.5 3.2-3.4c.4-.4.4-1.4 0-1.8a1 1 0 00-1.4 0L2.9 18a1 1 0 000 1.5z"
+          ></path>
+          <path d="M21.2 19.7H3.6v-2.2h16.5v-6.9c0-.6.5-1 1-1 .7 0 1.2.4 1.2 1v8c0 .6-.5 1.1-1.1 1.1z"></path>
         </svg>
       </button>
     {:else if item === 'background'}
@@ -288,8 +297,11 @@
           <button class="btn" slot="target">
             <svg {...ICON_SIZE}>
               <path
-                d="M12 3.1L7.05 8.05a7 7 0 1 0 9.9 0L12 3.1zm0-2.828l6.364 6.364a9 9 0 1 1-12.728 0L12 .272zM7 13h10a5 5
-                0 0 1-10 0z"
+                d="M12 3.1L6.1 8.6a7.6 7.6 0 00-2.2 4 7.2 7.2 0 00.4 4.4 7.9 7.9 0 003 3.5 8.7 8.7 0 004.7 1.3c1.6 0
+                3.2-.5 4.6-1.3s2.4-2 3-3.5a7.2 7.2 0 00.5-4.5 7.6 7.6 0 00-2.2-4L12 3.2zM12 0l7.5 7a9.8 9.8 0 013 5.1
+                9.3 9.3 0 01-.6 5.8c-.9 1.8-2.2 3.3-4 4.4A11.2 11.2 0 0112 24a11.2 11.2 0
+                01-6-1.7c-1.7-1-3-2.6-3.9-4.4a9.3 9.3 0 01-.6-5.8c.4-2 1.5-3.7 3-5L12 0zM6 14h12c0 1.5-.7 3-1.8 4s-2.6
+                1.6-4.2 1.6S9 19 7.8 18s-1.7-2.5-1.7-4z"
               ></path>
             </svg>
           </button>
@@ -299,14 +311,28 @@
         </Popover>
       </div>
     {:else if item === 'snapshot'}
-      <div class="control" on:mouseout="{play}" on:mouseover="{freeze}">
+      <div
+        class="control"
+        on:mouseout="{() => currentState === PlayerState.Frozen && play()}"
+        on:mouseover="{() => currentState !== PlayerState.Paused && freeze()}"
+      >
         <Popover color="#fff" on:mousewheel="{e => seek(frame + (e.deltaY > 0 ? -1 : 1))}">
           <button class="btn" slot="target">
             <svg {...ICON_SIZE}>
               <path
-                d="M11.993 14.407l-1.552 1.552a4 4 0 1 1-1.418-1.41l1.555-1.556-4.185-4.185 1.415-1.415 4.185 4.185
-                4.189-4.189 1.414 1.414-4.19 4.19 1.562 1.56a4 4 0 1 1-1.414 1.414l-1.561-1.56zM7 20a2 2 0 1 0 0-4 2 2 0
-                0 0 0 4zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm2-7V5H5v8H3V4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v9h-2z"
+                clip-rule="evenodd"
+                d="M0 3.01A2.983 2.983 0 012.983.027H16.99a2.983 2.983 0 012.983 2.983v14.008a2.982 2.982 0 01-2.983
+                2.983H2.983A2.983 2.983 0 010 17.018zm2.983-.941a.941.941 0 00-.942.94v14.01c0
+                .52.422.94.942.94H16.99a.94.94 0 00.941-.94V3.008a.941.941 0 00-.94-.94H2.981z"
+                fill-rule="evenodd"
+              ></path>
+              <path d="M12.229 7.945l-2.07 4.598-2.586-2.605-2.414 2.758v2.146h9.656V11.93z"></path>
+              <circle cx="7.444" cy="6.513" r="2.032"></circle>
+              <path
+                d="M9.561 23.916h11.25a2.929 2.929 0 002.926-2.927V9.954a1.06 1.06 0 10-2.122 0v11.035a.805.805 0
+                01-.803.804H9.562a1.061 1.061 0 100 2.123z"
+                stroke="#8795a1"
+                stroke-width=".215"
               ></path>
             </svg>
           </button>
@@ -322,11 +348,21 @@
       <button class="control btn" on:click="{onToggleZoom}">
         {#if isZoomed}
           <svg {...ICON_SIZE}>
-            <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+            <path
+              d="M7 22a1 1 0 102 0v-4a3 3 0 00-3-3H2a1 1 0 100 2h4a1 1 0 011 1v4zm8 0a1 1 0 102 0v-4a1 1 0 011-1h4a1 1 0
+              100-2h-4a3 3 0 00-3 3v4zM2 9h4a3 3 0 003-3V2a1 1 0 10-2 0v4a1 1 0 01-1 1H2a1 1 0 100 2zm16 0h4a1 1 0
+              100-2h-4a1 1 0 01-1-1V2a1 1 0 10-2 0v4a3 3 0 003 3z"
+              stroke-width=".2"
+            ></path>
           </svg>
         {:else}
           <svg {...ICON_SIZE}>
-            <path d="M20 3h2v6h-2V5h-4V3h4zM4 3h4v2H4v4H2V3h2zm16 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+            <path
+              d="M21 8a1 1 0 102 0V4a3 3 0 00-3-3h-4a1 1 0 100 2h4a1 1 0 011 1v4zM1 8a1 1 0 102 0V4a1 1 0 011-1h4a1 1 0
+              100-2H4a3 3 0 00-3 3v4zm15 15h4a3 3 0 003-3v-4a1 1 0 10-2 0v4a1 1 0 01-1 1h-4a1 1 0 100 2zM4 23h4a1 1 0
+              100-2H4a1 1 0 01-1-1v-4a1 1 0 10-2 0v4a3 3 0 003 3z"
+              stroke-width=".2"
+            ></path>
           </svg>
         {/if}
       </button>
@@ -335,9 +371,17 @@
         <Popover color="#fff">
           <button class="btn" slot="target">
             <svg {...ICON_SIZE}>
+              <rect
+                x="1.05"
+                y="1.05"
+                width="22"
+                height="22"
+                rx="2.12"
+                style="fill:none;stroke:#8795a1;stroke-width:2.0999999046325684px"
+              ></rect>
               <path
-                d="M15 4H5v16h14V8h-4V4zM3 2.992C3 2.444 3.447 2 3.999 2H16l5 5v13.993A1 1 0 0 1 20.007 22H3.993A1 1 0 0
-                1 3 21.008V2.992zM11 11h2v6h-2v-6zm0-4h2v2h-2V7z"
+                d="M12.05,12.05v7m0-12h0"
+                style="fill:none;stroke:#8795a1;stroke-linecap:round;stroke-linejoin:bevel;stroke-width:2px"
               ></path>
             </svg>
           </button>
@@ -352,8 +396,8 @@
           class="frame-number"
           type="text"
           bind:value="{formattedFrame}"
-          on:mouseout="{play}"
-          on:mouseover="{freeze}"
+          on:mouseout="{() => currentState === PlayerState.Frozen && play()}"
+          on:mouseover="{() => currentState !== PlayerState.Paused && freeze()}"
           on:input="{e => seek(e.target.value)}"
           on:mousewheel="{e => seek(frame + (e.deltaY > 0 ? -1 : 1))}"
         />
@@ -362,18 +406,17 @@
       <button class="control btn" on:click="{onNextFrame}">
         <svg {...ICON_SIZE}>
           <path
-            d="M12 13.333l-9.223 6.149A.5.5 0 0 1 2 19.066V4.934a.5.5 0 0 1 .777-.416L12 10.667V4.934a.5.5 0 0 1
-            .777-.416l10.599 7.066a.5.5 0 0 1 0 .832l-10.599 7.066a.5.5 0 0 1-.777-.416v-5.733z"
+            d="M2 19.513a1.429 1.429 0 0 0 2.148 1.234l12.88-7.513a1.429 1.429 0 0 0 0-2.468L4.147 3.253A1.429 1.429 0 0
+            0 2 4.487z"
           ></path>
+          <rect height="17.143" rx="1.429" transform="matrix(1 0 0 -1 16.286 20.571)" width="5.714"></rect>
         </svg>
       </button>
     {:else if item === 'previousFrame'}
       <button class="control btn" on:click="{oPreviousFrame}">
         <svg {...ICON_SIZE}>
-          <path
-            d="M12 10.667l9.223-6.149a.5.5 0 0 1 .777.416v14.132a.5.5 0 0 1-.777.416L12 13.333v5.733a.5.5 0 0
-            1-.777.416L.624 12.416a.5.5 0 0 1 0-.832l10.599-7.066a.5.5 0 0 1 .777.416v5.733z"
-          ></path>
+          <path d="M22 4.5a1.4 1.4 0 00-2.1-1.2l-13 7.5a1.4 1.4 0 000 2.4l13 7.5a1.4 1.4 0 002.1-1.2z"></path>
+          <rect height="17.1" rx="1.4" transform="matrix(-1 0 0 1 7.7 3.4)" width="5.7"></rect>
         </svg>
       </button>
     {:else if item === 'spacer'}
