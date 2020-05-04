@@ -27,7 +27,7 @@
 
   .spacer {
     flex-grow: 1;
-    width: 24px;
+    width: 14px;
   }
 
   .btn:hover {
