@@ -1,4 +1,5 @@
-# Ignore examples
+# Ignore examples and assets
+assets
 examples
 
 # Editor config

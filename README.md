@@ -10,6 +10,8 @@
 This provides a Lottie player using the lottie-web library, adding a control toolbar, render graph and other handy
 configs for viewing Lottie animations.
 
+![Screenshot](assets/screenshot1.png?raw=true)
+
 ## Features
 
 - Configuration of lottie-web via props
@@ -22,11 +24,9 @@ configs for viewing Lottie animations.
 - [Installation](#installation)
 - [Usage](#usage)
 
-## Getting started
+## Demos
 
-Look at the [example folder][examples-folder-url] for a few example use case demos.
-
-- [Basic usage][examples-basic]
+- [Basic usage on Svelte REPL](https://svelte.dev/repl/c7c774dba1464389af5d738a9e486658)
 
 ## Installation
 
