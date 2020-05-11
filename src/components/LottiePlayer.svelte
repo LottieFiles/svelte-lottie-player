@@ -544,7 +544,7 @@
 
 <div
   bind:this={wrapperRef}
-  style="{width ? `width:${width}px;` : ''}{width ? `height:${height}px;` : ''}{style}"
+  style="{width ? `width:${width}px;` : ''}{height ? `height:${height}px;` : ''}{style}"
   bind:clientHeight={playerHeight}
   bind:clientWidth={playerWidth}>
   <div

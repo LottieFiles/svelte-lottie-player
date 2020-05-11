@@ -1,32 +1,25 @@
 <style>
   .lottie-player-controls {
     align-items: center;
-    background-color: transparent;
     display: flex;
-    flex: 1;
-    flex-direction: row;
     justify-content: space-between;
     padding: 4px 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+      sans-serif !important;
   }
 
-  .control + .control {
+  .lottie-player-controls > div {
     margin-left: 4px;
-  }
-
-  .btn {
-    background: none;
-    border: 0;
-    cursor: pointer;
-    display: flex;
-    fill: #999;
-    height: 14px;
-    outline: none;
-    padding: 0;
-    width: 14px;
   }
 
   .spacer {
     flex-grow: 1;
+    width: 14px;
+  }
+
+  .btn {
+    cursor: pointer;
+    fill: #999;
     width: 14px;
   }
 
@@ -38,46 +31,39 @@
     fill: #555;
   }
 
-  .btn.disabled {
-    display: none;
-  }
-
-  .control.progress {
+  .progress {
     -webkit-appearance: none;
-    width: 95%;
+    -moz-apperance: none;
+    width: 100%;
+    margin: 0 10px;
+    height: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .progress:focus {
     outline: none;
     border: none;
-    margin: 0 10px;
   }
-  .progress::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 3px;
+  .progress::-moz-range-track {
     cursor: pointer;
-    background: #ccc;
-    border-radius: 3px;
+    background: none;
+    border: none;
+    outline: none;
   }
   .progress::-webkit-slider-thumb {
-    height: 15px;
-    width: 15px;
+    -webkit-appearance: none !important;
+    height: 13px;
+    width: 13px;
+    border: 0;
     border-radius: 50%;
     background: #0fccce;
     cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -6px;
-  }
-  .progress:focus::-webkit-slider-controls-runnable-track {
-    background: #999;
-  }
-  .progress::-moz-range-track {
-    width: 100%;
-    height: 3px;
-    cursor: pointer;
-    background: #ccc;
-    border-radius: 3px;
   }
   .progress::-moz-range-thumb {
-    height: 15px;
-    width: 15px;
+    -moz-appearance: none !important;
+    height: 13px;
+    width: 13px;
+    border: 0;
     border-radius: 50%;
     background: #0fccce;
     cursor: pointer;
@@ -154,11 +140,9 @@
     width: 40px;
     text-align: center;
     color: #999;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-      sans-serif;
     font-size: 0.7rem;
-    height: 14px;
-    padding: 0px;
+    padding: 0;
+    font-family: inherit;
   }
 
   .popover-background {
@@ -244,7 +228,7 @@
 <div class="lottie-player-controls">
   {#each layout as item}
     {#if item === 'playpause'}
-      <button class="control btn" on:click="{togglePlay}" class:active="{isPlaying || isPaused}">
+      <div class="btn" on:click="{togglePlay}" class:active="{isPlaying || isPaused}">
         {#if isPlaying}
           <svg {...ICON_SIZE}>
             <rect height="22.9" rx="1.9" width="7.6" x="14" y=".5"></rect>
@@ -255,19 +239,19 @@
             <path d="M2 3.4C2 1.9 3.5 1 4.8 1.8l16.5 9.6c1.2.7 1.2 2.5 0 3.2L4.8 24.2C3.5 25 2 24.1 2 22.6V3.4z"></path>
           </svg>
         {/if}
-      </button>
+      </div>
     {:else if item === 'stop'}
-      <button class="control btn" on:click="{stop}" class:active="{isStopped}">
+      <div class="btn" on:click="{stop}" class:active="{isStopped}">
         <svg {...ICON_SIZE}>
           <path
             d="M2 3.667A1.67 1.67 0 0 1 3.667 2h16.666A1.67 1.67 0 0 1 22 3.667v16.666A1.67 1.67 0 0 1 20.333
             22H3.667A1.67 1.67 0 0 1 2 20.333z"
           ></path>
         </svg>
-      </button>
+      </div>
     {:else if item === 'progress'}
       <input
-        class="control progress"
+        class=" progress"
         type="range"
         min="0"
         step="1"
@@ -276,9 +260,13 @@
         on:input="{onHandleSeekChange}"
         on:mousedown="{freeze}"
         on:mouseup="{play}"
+        style={`
+          background-image: -webkit-gradient(linear, left top, right top, color-stop(${progress}%, rgba(15, 204, 206, 0.4)), color-stop(${progress}%, #DAE1E7));
+          background-image: -moz-linear-gradient(left center, rgba(15, 204, 206, 0.4) 0%, rgba(15, 204, 206, 0.4) ${progress}%, #DAE1E7 ${progress}%, #DAE1E7 100%);
+        `}
       />
     {:else if item === 'loop'}
-      <button class="control btn" on:click="{toggleLooping}" class:active="{loop}">
+      <div class="btn" on:click="{toggleLooping}" class:active="{loop}">
         <svg {...ICON_SIZE}>
           <path
             d="M12.5 16.8137h-.13v1.8939h4.9696c3.6455 0 6.6113-2.9658 6.6113-6.6116
@@ -305,11 +293,11 @@
             stroke-width=".26"
           ></path>
         </svg>
-      </button>
+      </div>
     {:else if item === 'background'}
-      <div class="control">
+      <div class="">
         <Popover color="#fff">
-          <button class="btn" slot="target">
+          <div class="btn" slot="target">
             <svg {...ICON_SIZE}>
               <path
                 d="M12 3.1L6.1 8.6a7.6 7.6 0 00-2.2 4 7.2 7.2 0 00.4 4.4 7.9 7.9 0 003 3.5 8.7 8.7 0 004.7 1.3c1.6 0
@@ -319,7 +307,7 @@
                 1.6-4.2 1.6S9 19 7.8 18s-1.7-2.5-1.7-4z"
               ></path>
             </svg>
-          </button>
+          </div>
           <div slot="content" class="popover popover-background">
             <ColorPicker color="{background}" on:color="{onSelectBackground}" />
           </div>
@@ -327,12 +315,12 @@
       </div>
     {:else if item === 'snapshot'}
       <div
-        class="control"
+        class=""
         on:mouseout="{() => currentState === PlayerState.Frozen && play()}"
         on:mouseover="{() => currentState !== PlayerState.Paused && freeze()}"
       >
         <Popover color="#fff" on:mousewheel="{e => seek(frame + (e.deltaY > 0 ? -1 : 1))}">
-          <button class="btn" slot="target">
+          <div class="btn" slot="target">
             <svg {...ICON_SIZE}>
               <path
                 clip-rule="evenodd"
@@ -350,7 +338,7 @@
                 stroke-width=".215"
               ></path>
             </svg>
-          </button>
+          </div>
           <div slot="content" class="popover popover-snapshot">
             <h5>Frame {formattedFrame}</h5>
             <a href="#downloadsvg" on:click="{() => snapshot(true)}">Download SVG</a>
@@ -360,7 +348,7 @@
         </Popover>
       </div>
     {:else if item === 'zoom'}
-      <button class="control btn" on:click="{onToggleZoom}">
+      <div class="btn" on:click="{onToggleZoom}">
         {#if isZoomed}
           <svg {...ICON_SIZE}>
             <path
@@ -380,11 +368,11 @@
             ></path>
           </svg>
         {/if}
-      </button>
+      </div>
     {:else if item === 'info'}
-      <div class="control">
+      <div class="">
         <Popover color="#fff">
-          <button class="btn" slot="target">
+          <div class="btn" slot="target">
             <svg {...ICON_SIZE}>
               <path
                 fill-rule="evenodd"
@@ -400,14 +388,14 @@
                 011 1v.42a1 1 0 11-2 0V7a1 1 0 011-1z"
               ></path>
             </svg>
-          </button>
+          </div>
           <div slot="content" class="popover popover-info">
             <Info {animationData} />
           </div>
         </Popover>
       </div>
     {:else if item === 'frame'}
-      <div class="control">
+      <div class="">
         <input
           class="frame-number"
           type="text"
@@ -419,7 +407,7 @@
         />
       </div>
     {:else if item === 'nextFrame'}
-      <button class="control btn" on:click="{onNextFrame}">
+      <div class="btn" on:click="{onNextFrame}">
         <svg {...ICON_SIZE}>
           <path
             d="M2 19.513a1.429 1.429 0 0 0 2.148 1.234l12.88-7.513a1.429 1.429 0 0 0 0-2.468L4.147 3.253A1.429 1.429 0 0
@@ -427,16 +415,16 @@
           ></path>
           <rect height="17.143" rx="1.429" transform="matrix(1 0 0 -1 16.286 20.571)" width="5.714"></rect>
         </svg>
-      </button>
+      </div>
     {:else if item === 'previousFrame'}
-      <button class="control btn" on:click="{oPreviousFrame}">
+      <div class="btn" on:click="{oPreviousFrame}">
         <svg {...ICON_SIZE}>
           <path d="M22 4.5a1.4 1.4 0 00-2.1-1.2l-13 7.5a1.4 1.4 0 000 2.4l13 7.5a1.4 1.4 0 002.1-1.2z"></path>
           <rect height="17.1" rx="1.4" transform="matrix(-1 0 0 1 7.7 3.4)" width="5.7"></rect>
         </svg>
-      </button>
+      </div>
     {:else if item === 'spacer'}
-      <span class="control spacer"></span>
+      <div class="spacer"></div>
     {/if}
   {/each}
 </div>
