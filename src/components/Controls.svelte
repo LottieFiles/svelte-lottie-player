@@ -318,6 +318,8 @@
         class=""
         on:mouseout="{() => currentState === PlayerState.Frozen && play()}"
         on:mouseover="{() => currentState !== PlayerState.Paused && freeze()}"
+        on:blur
+        on:focus
       >
         <Popover color="#fff" on:mousewheel="{e => seek(frame + (e.deltaY > 0 ? -1 : 1))}">
           <div class="btn" slot="target">
@@ -404,6 +406,8 @@
           on:mouseover="{() => currentState !== PlayerState.Paused && freeze()}"
           on:input="{e => seek(e.target.value)}"
           on:mousewheel="{e => seek(frame + (e.deltaY > 0 ? -1 : 1))}"
+          on:blur
+          on:focus
         />
       </div>
     {:else if item === 'nextFrame'}

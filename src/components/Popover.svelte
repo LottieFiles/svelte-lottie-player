@@ -84,6 +84,8 @@
   on:mousedown
   on:mouseover={show}
   on:mouseout={hide}
+  on:blur
+  on:focus
   on:mouseup
   on:mousewheel>
   <div bind:this={_triggerRef}>
