@@ -4,6 +4,8 @@
 
   import Controls from "./Controls.svelte";
 
+  import { SVELTE_LOTTIE_PLAYER_VERSION, LOTTIE_WEB_VERSION } from './versions.js'
+
   import {
     PlayerEvents,
     PlayerRender,
@@ -288,6 +290,16 @@
 
     dispatchEvent(new CustomEvent(PlayerEvents.Play));
   };
+
+  /**
+   * Returns the lottie-web version and this player's version
+   */
+   export const getVersions = () => {
+    return {
+      lottieWebVersion: LOTTIE_WEB_VERSION,
+      svelteLottiePlayerVersion: SVELTE_LOTTIE_PLAYER_VERSION,
+    };
+  }
 
   /**
    * Pause animation play.
