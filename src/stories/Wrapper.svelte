@@ -1,5 +1,6 @@
 <script>
   import LottiePlayer from "../components/LottiePlayer.svelte";
+	import { onMount } from 'svelte';
 
   export let src;
   export let autoplay;
@@ -15,10 +16,15 @@
   export let height;
   export let style;
   export let controlsLayout;
+  export let component = null;
 
   let parsedControlsLayout;
 
   $: parsedControlsLayout = controlsLayout.split(",");
+
+  onMount(async () => {
+    console.log(component.getVersions());
+	});
 </script>
 
 <style>
@@ -33,6 +39,7 @@
 <p>Load and play lottie animations</p>
 
 <LottiePlayer
+  bind:this={component}
   {src}
   {autoplay}
   {loop}
