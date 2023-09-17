@@ -47,6 +47,10 @@ declare module '@lottiefiles/svelte-lottie-player' {
      */
     getLottie(): AnimationItem;
     /**
+     * Returns the lottie-web version and this player's version
+     */
+    getVersions(): { lottieWebVersion: string; svelteLottiePlayerVersion: string };
+    /**
      * Pause animation play.
      */
     pause(): void;
