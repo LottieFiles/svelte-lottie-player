@@ -73,8 +73,10 @@
   },
   "files": [
     "src/components",
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
+  "types": "index.d.ts",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
