@@ -54,6 +54,9 @@
   // Renderer to use in lottie-web
   export let renderer = PlayerRender.SVG;
 
+  // To customize the renderer settings
+  export let rendererSettings = {};
+
   // Playback speed.
   export let speed = 1;
 
@@ -156,7 +159,8 @@
         preserveAspectRatio: "xMidYMid meet",
         clearCanvas: true,
         progressiveLoad: true,
-        hideOnTransparent: true
+        hideOnTransparent: true,
+        ...rendererSettings
       }
     };
 
