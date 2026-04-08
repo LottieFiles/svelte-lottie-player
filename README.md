@@ -1,4 +1,16 @@
-# Svelte Lottie Player
+> [!IMPORTANT]
+> ## This package has been superseded
+>
+> **`@lottiefiles/svelte-lottie-player` is no longer maintained.** Please use
+> [`@lottiefiles/dotlottie-svelte`](https://npmjs.com/package/@lottiefiles/dotlottie-svelte) instead,
+> which supports the modern dotLottie format alongside classic Lottie JSON.
+>
+> - **npm:** [`@lottiefiles/dotlottie-svelte`](https://npmjs.com/package/@lottiefiles/dotlottie-svelte)
+> - **GitHub:** [`lottiefiles/dotlottie-web`](https://github.com/lottiefiles/dotlottie-web)
+
+---
+
+# Svelte Lottie Player (Deprecated)
 
 ![npm (scoped)](https://img.shields.io/npm/v/@lottiefiles/svelte-lottie-player?style=flat-square)
 ![NPM](https://img.shields.io/npm/l/@lottiefiles/svelte-lottie-player?style=flat-square)
